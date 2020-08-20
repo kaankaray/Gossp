@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +13,39 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hL8-pE-HFA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.29569748039999999" green="0.16246348620000001" blue="0.55153113600000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GosspWide8" translatesAutoresizingMaskIntoConstraints="NO" id="r8n-iI-bEB">
+                                <rect key="frame" x="97" y="393" width="220" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="mBp-mm-20E"/>
+                                    <constraint firstAttribute="height" constant="110" id="mHV-d2-c0g"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hL8-pE-HFA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0d5-ph-dDj"/>
+                            <constraint firstItem="r8n-iI-bEB" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WbZ-4V-wAc"/>
+                            <constraint firstAttribute="bottom" secondItem="hL8-pE-HFA" secondAttribute="bottom" id="urS-nK-r6G"/>
+                            <constraint firstItem="hL8-pE-HFA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vrS-b0-09D"/>
+                            <constraint firstItem="r8n-iI-bEB" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="w5e-2v-yxk"/>
+                            <constraint firstItem="hL8-pE-HFA" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="x4t-VJ-Mzq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="GosspWide8" width="512" height="256"/>
+    </resources>
 </document>

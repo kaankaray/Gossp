@@ -3,45 +3,152 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7039B0E724E32D2E00EDCB35 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7039B0E624E32D2E00EDCB35 /* NotificationService.swift */; };
+		7039B0EB24E32D2E00EDCB35 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7039B0E424E32D2E00EDCB35 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		703C43DC24D7314C003B1B50 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C43DB24D7314C003B1B50 /* Global.swift */; };
+		703C43DE24D7316C003B1B50 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C43DD24D7316C003B1B50 /* Extentions.swift */; };
+		704725C924E1C2BA00A5782D /* gosspTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704725C824E1C2BA00A5782D /* gosspTableViewCell.swift */; };
+		704725CB24E1C31A00A5782D /* LocationGosspsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704725CA24E1C31A00A5782D /* LocationGosspsTableViewController.swift */; };
+		7049E3E024E01F3C0042A769 /* PhoneLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049E3DF24E01F3C0042A769 /* PhoneLoginViewController.swift */; };
+		7062D1D124E18119007992D9 /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7062D1D024E18119007992D9 /* SocialViewController.swift */; };
+		7062D1D324E183EB007992D9 /* LocationsListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7062D1D224E183EB007992D9 /* LocationsListCellTableViewCell.swift */; };
 		70635B6F24D725A60032F072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70635B6E24D725A60032F072 /* AppDelegate.swift */; };
-		70635B7124D725A60032F072 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70635B7024D725A60032F072 /* SceneDelegate.swift */; };
-		70635B7324D725A60032F072 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70635B7224D725A60032F072 /* ViewController.swift */; };
 		70635B7624D725A60032F072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70635B7424D725A60032F072 /* Main.storyboard */; };
 		70635B7824D725AD0032F072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70635B7724D725AD0032F072 /* Assets.xcassets */; };
 		70635B7B24D725AD0032F072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70635B7924D725AD0032F072 /* LaunchScreen.storyboard */; };
+		70635B8324D7292E0032F072 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70635B8224D7292D0032F072 /* MapViewController.swift */; };
+		70635B8924D729F00032F072 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70635B8824D729F00032F072 /* SettingsViewController.swift */; };
+		7076AC0924D821180046103C /* PrivateSDKKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7076AC0824D821180046103C /* PrivateSDKKeys.swift */; };
+		708F496424E1DAB10050A828 /* VouchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708F496324E1DAB10050A828 /* VouchingViewController.swift */; };
+		708F496624E1DAE00050A828 /* AddLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708F496524E1DAE00050A828 /* AddLocationTableViewCell.swift */; };
+		709E34E524E00A39003C1116 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 709E34E424E00A39003C1116 /* GoogleService-Info.plist */; };
+		70B280E924E5F89D00DA6127 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 70B280E824E5F89D00DA6127 /* mapStyle.json */; };
+		70D7621524ED2FC4001604C0 /* CircularProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = 70D7621424ED2FC4001604C0 /* CircularProgressView */; };
+		81FA8356B707F5F8327342F4 /* Pods_Gossp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29827A3B4C186673D7EF650 /* Pods_Gossp.framework */; };
+		85D3758F06953608375F1660 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F94D6FF752E96685897207B /* Pods_OneSignalNotificationServiceExtension.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7039B0E924E32D2E00EDCB35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70635B6324D725A60032F072 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7039B0E324E32D2E00EDCB35;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7039B0EC24E32D2E00EDCB35 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7039B0EB24E32D2E00EDCB35 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0F94D6FF752E96685897207B /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CD882CD4F288D4723DCFD39 /* Pods-Gossp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gossp.release.xcconfig"; path = "Target Support Files/Pods-Gossp/Pods-Gossp.release.xcconfig"; sourceTree = "<group>"; };
+		7039B0E424E32D2E00EDCB35 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7039B0E624E32D2E00EDCB35 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		7039B0E824E32D2E00EDCB35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		703C43D924D72FEC003B1B50 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		703C43DB24D7314C003B1B50 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = SOURCE_ROOT; };
+		703C43DD24D7316C003B1B50 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		704725C824E1C2BA00A5782D /* gosspTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gosspTableViewCell.swift; sourceTree = "<group>"; };
+		704725CA24E1C31A00A5782D /* LocationGosspsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGosspsTableViewController.swift; sourceTree = "<group>"; };
+		7049E3DE24E017870042A769 /* Gossp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gossp.entitlements; sourceTree = "<group>"; };
+		7049E3DF24E01F3C0042A769 /* PhoneLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLoginViewController.swift; sourceTree = "<group>"; };
+		7062D1D024E18119007992D9 /* SocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
+		7062D1D224E183EB007992D9 /* LocationsListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationsListCellTableViewCell.swift; path = /Users/kaankaray/Developer/Xcode/Gossp/Gossp/SettingsView/LocationsListCellTableViewCell.swift; sourceTree = "<absolute>"; };
 		70635B6B24D725A60032F072 /* Gossp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gossp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70635B6E24D725A60032F072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		70635B7024D725A60032F072 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		70635B7224D725A60032F072 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		70635B7524D725A60032F072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70635B7724D725AD0032F072 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70635B7A24D725AD0032F072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70635B7C24D725AD0032F072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70635B8224D7292D0032F072 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		70635B8824D729F00032F072 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7076AC0824D821180046103C /* PrivateSDKKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateSDKKeys.swift; sourceTree = "<group>"; };
+		708F496324E1DAB10050A828 /* VouchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VouchingViewController.swift; sourceTree = "<group>"; };
+		708F496524E1DAE00050A828 /* AddLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddLocationTableViewCell.swift; path = /Users/kaankaray/Developer/Xcode/Gossp/Gossp/MapView/AddLocationTableViewCell.swift; sourceTree = "<absolute>"; };
+		709E34E424E00A39003C1116 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		70B280E824E5F89D00DA6127 /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
+		8150F463EBB9DB9D11E493A6 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		C67DDAC3F7F362333BAED061 /* Pods-Gossp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gossp.debug.xcconfig"; path = "Target Support Files/Pods-Gossp/Pods-Gossp.debug.xcconfig"; sourceTree = "<group>"; };
+		E29827A3B4C186673D7EF650 /* Pods_Gossp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gossp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9973746945927C6F89EB1F7 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7039B0E124E32D2E00EDCB35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85D3758F06953608375F1660 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		70635B6824D725A60032F072 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FA8356B707F5F8327342F4 /* Pods_Gossp.framework in Frameworks */,
+				70D7621524ED2FC4001604C0 /* CircularProgressView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7039B0E524E32D2E00EDCB35 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				7039B0E624E32D2E00EDCB35 /* NotificationService.swift */,
+				7039B0E824E32D2E00EDCB35 /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
+		703C43D824D72FEC003B1B50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				703C43D924D72FEC003B1B50 /* MapKit.framework */,
+				E29827A3B4C186673D7EF650 /* Pods_Gossp.framework */,
+				0F94D6FF752E96685897207B /* Pods_OneSignalNotificationServiceExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7049E3DD24E013DF0042A769 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				7076AC0824D821180046103C /* PrivateSDKKeys.swift */,
+				709E34E424E00A39003C1116 /* GoogleService-Info.plist */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
 		70635B6224D725A60032F072 = {
 			isa = PBXGroup;
 			children = (
+				7049E3DD24E013DF0042A769 /* Private */,
+				703C43DB24D7314C003B1B50 /* Global.swift */,
 				70635B6D24D725A60032F072 /* Gossp */,
+				7039B0E524E32D2E00EDCB35 /* OneSignalNotificationServiceExtension */,
 				70635B6C24D725A60032F072 /* Products */,
+				703C43D824D72FEC003B1B50 /* Frameworks */,
+				F98ECEE7730FECEBD8FFAEC3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				70635B6B24D725A60032F072 /* Gossp.app */,
+				7039B0E424E32D2E00EDCB35 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,33 +164,105 @@
 		70635B6D24D725A60032F072 /* Gossp */ = {
 			isa = PBXGroup;
 			children = (
+				7049E3DE24E017870042A769 /* Gossp.entitlements */,
 				70635B6E24D725A60032F072 /* AppDelegate.swift */,
-				70635B7024D725A60032F072 /* SceneDelegate.swift */,
-				70635B7224D725A60032F072 /* ViewController.swift */,
-				70635B7424D725A60032F072 /* Main.storyboard */,
+				703C43DD24D7316C003B1B50 /* Extentions.swift */,
+				7049E3DF24E01F3C0042A769 /* PhoneLoginViewController.swift */,
+				70635B8A24D729FD0032F072 /* MapView */,
+				7082737A24D72AAA00952CDD /* SocialView */,
+				7082737B24D72AAF00952CDD /* SettingsView */,
 				70635B7724D725AD0032F072 /* Assets.xcassets */,
+				70635B7424D725A60032F072 /* Main.storyboard */,
 				70635B7924D725AD0032F072 /* LaunchScreen.storyboard */,
 				70635B7C24D725AD0032F072 /* Info.plist */,
+				70B280E824E5F89D00DA6127 /* mapStyle.json */,
 			);
 			path = Gossp;
+			sourceTree = "<group>";
+		};
+		70635B8A24D729FD0032F072 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				70635B8224D7292D0032F072 /* MapViewController.swift */,
+				708F496324E1DAB10050A828 /* VouchingViewController.swift */,
+				708F496524E1DAE00050A828 /* AddLocationTableViewCell.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		7082737A24D72AAA00952CDD /* SocialView */ = {
+			isa = PBXGroup;
+			children = (
+				7062D1D024E18119007992D9 /* SocialViewController.swift */,
+				7062D1D224E183EB007992D9 /* LocationsListCellTableViewCell.swift */,
+				704725CA24E1C31A00A5782D /* LocationGosspsTableViewController.swift */,
+				704725C824E1C2BA00A5782D /* gosspTableViewCell.swift */,
+			);
+			path = SocialView;
+			sourceTree = "<group>";
+		};
+		7082737B24D72AAF00952CDD /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				70635B8824D729F00032F072 /* SettingsViewController.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		F98ECEE7730FECEBD8FFAEC3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C67DDAC3F7F362333BAED061 /* Pods-Gossp.debug.xcconfig */,
+				1CD882CD4F288D4723DCFD39 /* Pods-Gossp.release.xcconfig */,
+				8150F463EBB9DB9D11E493A6 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				F9973746945927C6F89EB1F7 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		70635B6A24D725A60032F072 /* Gossp */ = {
+		7039B0E324E32D2E00EDCB35 /* OneSignalNotificationServiceExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 70635B7F24D725AD0032F072 /* Build configuration list for PBXNativeTarget "Gossp" */;
+			buildConfigurationList = 7039B0EF24E32D2E00EDCB35 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
 			buildPhases = (
-				70635B6724D725A60032F072 /* Sources */,
-				70635B6824D725A60032F072 /* Frameworks */,
-				70635B6924D725A60032F072 /* Resources */,
+				34132545B7C2E4D20CAFBB6E /* [CP] Check Pods Manifest.lock */,
+				7039B0E024E32D2E00EDCB35 /* Sources */,
+				7039B0E124E32D2E00EDCB35 /* Frameworks */,
+				7039B0E224E32D2E00EDCB35 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = 7039B0E424E32D2E00EDCB35 /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		70635B6A24D725A60032F072 /* Gossp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70635B7F24D725AD0032F072 /* Build configuration list for PBXNativeTarget "Gossp" */;
+			buildPhases = (
+				FC5422B7096419B4534FB1E5 /* [CP] Check Pods Manifest.lock */,
+				70635B6724D725A60032F072 /* Sources */,
+				70635B6824D725A60032F072 /* Frameworks */,
+				70635B6924D725A60032F072 /* Resources */,
+				B941EBB62043A836450B094A /* [CP] Embed Pods Frameworks */,
+				7D489839DAB733FE5AEEA7F2 /* [CP] Copy Pods Resources */,
+				709E34E324DFEC4B003C1116 /* ShellScript */,
+				7039B0EC24E32D2E00EDCB35 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7039B0EA24E32D2E00EDCB35 /* PBXTargetDependency */,
+			);
 			name = Gossp;
+			packageProductDependencies = (
+				70D7621424ED2FC4001604C0 /* CircularProgressView */,
+			);
 			productName = Gossp;
 			productReference = 70635B6B24D725A60032F072 /* Gossp.app */;
 			productType = "com.apple.product-type.application";
@@ -93,10 +273,13 @@
 		70635B6324D725A60032F072 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Kaan Karay";
 				TargetAttributes = {
+					7039B0E324E32D2E00EDCB35 = {
+						CreatedOnToolsVersion = 11.6;
+					};
 					70635B6A24D725A60032F072 = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -111,40 +294,177 @@
 				Base,
 			);
 			mainGroup = 70635B6224D725A60032F072;
+			packageReferences = (
+				70D7621324ED2FC4001604C0 /* XCRemoteSwiftPackageReference "CircularProgressView" */,
+			);
 			productRefGroup = 70635B6C24D725A60032F072 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				70635B6A24D725A60032F072 /* Gossp */,
+				7039B0E324E32D2E00EDCB35 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7039B0E224E32D2E00EDCB35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		70635B6924D725A60032F072 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				70635B7B24D725AD0032F072 /* LaunchScreen.storyboard in Resources */,
+				709E34E524E00A39003C1116 /* GoogleService-Info.plist in Resources */,
 				70635B7824D725AD0032F072 /* Assets.xcassets in Resources */,
+				70B280E924E5F89D00DA6127 /* mapStyle.json in Resources */,
 				70635B7624D725A60032F072 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		34132545B7C2E4D20CAFBB6E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		709E34E324DFEC4B003C1116 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+		7D489839DAB733FE5AEEA7F2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gossp/Pods-Gossp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gossp/Pods-Gossp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gossp/Pods-Gossp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B941EBB62043A836450B094A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gossp/Pods-Gossp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gossp/Pods-Gossp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gossp/Pods-Gossp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC5422B7096419B4534FB1E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gossp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		7039B0E024E32D2E00EDCB35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7039B0E724E32D2E00EDCB35 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		70635B6724D725A60032F072 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70635B7324D725A60032F072 /* ViewController.swift in Sources */,
+				7062D1D324E183EB007992D9 /* LocationsListCellTableViewCell.swift in Sources */,
+				708F496424E1DAB10050A828 /* VouchingViewController.swift in Sources */,
 				70635B6F24D725A60032F072 /* AppDelegate.swift in Sources */,
-				70635B7124D725A60032F072 /* SceneDelegate.swift in Sources */,
+				703C43DE24D7316C003B1B50 /* Extentions.swift in Sources */,
+				704725CB24E1C31A00A5782D /* LocationGosspsTableViewController.swift in Sources */,
+				7076AC0924D821180046103C /* PrivateSDKKeys.swift in Sources */,
+				70635B8324D7292E0032F072 /* MapViewController.swift in Sources */,
+				708F496624E1DAE00050A828 /* AddLocationTableViewCell.swift in Sources */,
+				7049E3E024E01F3C0042A769 /* PhoneLoginViewController.swift in Sources */,
+				7062D1D124E18119007992D9 /* SocialViewController.swift in Sources */,
+				70635B8924D729F00032F072 /* SettingsViewController.swift in Sources */,
+				704725C924E1C2BA00A5782D /* gosspTableViewCell.swift in Sources */,
+				703C43DC24D7314C003B1B50 /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7039B0EA24E32D2E00EDCB35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7039B0E324E32D2E00EDCB35 /* OneSignalNotificationServiceExtension */;
+			targetProxy = 7039B0E924E32D2E00EDCB35 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		70635B7424D725A60032F072 /* Main.storyboard */ = {
@@ -166,6 +486,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7039B0ED24E32D2E00EDCB35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8150F463EBB9DB9D11E493A6 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NU6W7THDN;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kkaray.Gossp.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7039B0EE24E32D2E00EDCB35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9973746945927C6F89EB1F7 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NU6W7THDN;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kkaray.Gossp.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		70635B7D24D725AD0032F072 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -282,17 +644,23 @@
 		};
 		70635B8024D725AD0032F072 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C67DDAC3F7F362333BAED061 /* Pods-Gossp.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = GosspMors;
+				CODE_SIGN_ENTITLEMENTS = Gossp/Gossp.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 54;
 				DEVELOPMENT_TEAM = 3NU6W7THDN;
 				INFOPLIST_FILE = Gossp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kkaray.Gossp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Gossp Development Provisioning Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,11 +668,16 @@
 		};
 		70635B8124D725AD0032F072 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CD882CD4F288D4723DCFD39 /* Pods-Gossp.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = GosspMors;
+				CODE_SIGN_ENTITLEMENTS = Gossp/Gossp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 54;
 				DEVELOPMENT_TEAM = 3NU6W7THDN;
 				INFOPLIST_FILE = Gossp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -319,6 +692,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7039B0EF24E32D2E00EDCB35 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7039B0ED24E32D2E00EDCB35 /* Debug */,
+				7039B0EE24E32D2E00EDCB35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		70635B6624D725A60032F072 /* Build configuration list for PBXProject "Gossp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -338,6 +720,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		70D7621324ED2FC4001604C0 /* XCRemoteSwiftPackageReference "CircularProgressView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bdolewski/CircularProgressView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		70D7621424ED2FC4001604C0 /* CircularProgressView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70D7621324ED2FC4001604C0 /* XCRemoteSwiftPackageReference "CircularProgressView" */;
+			productName = CircularProgressView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 70635B6324D725A60032F072 /* Project object */;
 }

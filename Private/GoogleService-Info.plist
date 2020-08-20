@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>782359463275-damat6utoa72ifd2prd6of2da421akrb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.782359463275-damat6utoa72ifd2prd6of2da421akrb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC92Te60AiDCIrGtpgBNsDqizqbtuLsPcQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>782359463275</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kkaray.Gossp</string>
+	<key>PROJECT_ID</key>
+	<string>gossp-285310</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gossp-285310.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:782359463275:ios:27e408388c40432c96b82e</string>
+	<key>DATABASE_URL</key>
+	<string>https://gossp-285310.firebaseio.com</string>
+</dict>
+</plist>
