@@ -14,10 +14,13 @@ import FirebaseStorage
 import FirebaseCore
 
 class SettingsViewController: UITableViewController {
+  var currentUser:GosspUser = GosspUser()
+  var currentLocation:GosspLocation = GosspLocation()
+  var masterVC = LocationGosspsTableViewController()
   
+  @IBOutlet var labels: [UILabel]!
 //  MARK: Cell 0 Outlets
   @IBOutlet var idLabel: UILabel!
-  @IBOutlet var labels: [UILabel]!
   @IBOutlet var idChange: UIButton!
   @IBOutlet var idColorChange: UIButton!
   @IBOutlet var cellContentViews: [UIView]!
@@ -34,15 +37,17 @@ class SettingsViewController: UITableViewController {
     } else {
       let p = warningAlert()
       p.addAction(UIAlertAction(title: "I understand and would like to proceed.", style: .destructive, handler: { (action) in
-        let tempOldUser = currentUser
+        let tempOldUser = self.currentUser
         tempOldUser.isDeleted = true
-        tempOldUser.updateCloud()
+        //tempOldUser.updateCloud(loc: self.currentLocation)
         
-        currentUser.name = randomString(length: 8)
-        currentUser.colors = randomColorFloat()
-        currentUser.vouchableDate = Double(Date().addingTimeInterval(timeoutsInDays().IDChange).timeIntervalSince1970)
-        currentUser.updateCloud()
+        let newUser = GosspUser()
+        
+        newUser.vouchableDate = Double(Date().addingTimeInterval(timeoutsInDays().IDChange).timeIntervalSince1970)
+        self.currentLocation.contCount.append(newUser)
+        self.currentLocation.updateCloud()
         self.viewWillAppear(false)
+        //self.masterVC.viewWillAppear(false)
         
       }))
       p.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
@@ -64,10 +69,10 @@ class SettingsViewController: UITableViewController {
       let p = warningAlert()
       p.addAction(UIAlertAction(title: "I understand and would like to proceed.", style: .destructive, handler: { (action) in
         //Asking for the name of the Location.
-        currentUser.colors = randomColorFloat()
+        self.currentUser.colors = randomColorFloat()
         
-        currentUser.vouchableDate = Double(Date().addingTimeInterval(timeoutsInDays().colorChange).timeIntervalSince1970)
-        currentUser.updateCloud()
+        self.currentUser.vouchableDate = Double(Date().addingTimeInterval(timeoutsInDays().colorChange).timeIntervalSince1970)
+        self.currentUser.updateCloud(loc: self.currentLocation)
         self.viewWillAppear(false)
         
       }))
@@ -77,24 +82,34 @@ class SettingsViewController: UITableViewController {
     }
   }
   
-//  MARK: Cell 1
+  // MARK: Cell 1
+  
+  @IBOutlet var isHiddenSelected: UISwitch!
+  @IBAction func isHiddenSelectedAct(_ sender: Any) {
+    UserDefaults.standard.setValue(!UserDefaults.standard.bool(forKey: "nameHiddenIntGosspList"), forKey: "nameHiddenIntGosspList")
+    masterVC.updateTopViewName()
+  }
+  
+//  MARK: Cell 2
   
   @IBOutlet var colorPickers: [UISlider]!
   @IBAction func colorPickersAct(_ sender: Any) {
   }
   @IBAction func butPressed(_ sender: Any) {
     currentUser.vouchableDate = 0
-    currentUser.updateCloud()
+    currentUser.updateCloud(loc: currentLocation)
     idChange.tintColor = .gosspGreen
     idColorChange.tintColor = .gosspGreen
   }
   
   //MARK: ViewDid...
   override func viewWillAppear(_ animated: Bool) {
-    self.navigationController?.navigationBar.topItem?.title = "Gossp"
-    navigationController?.navigationBar.barStyle = .black
+    labels.forEach{$0.textColor = .gosspGreen}
+    self.tableView.tintColor = .gosspGreen
+    self.tableView.backgroundColor = .gosspLighterPurple
+    self.tableView.separatorColor = UIColor.white
     
-    idLabel.text = currentUser.name
+    cellContentViews.forEach{$0.backgroundColor = .gosspLighterPurple}
     
     let strokeTextAttributes = [
       NSAttributedString.Key.strokeColor : UIColor.gosspLightGray,
@@ -102,10 +117,8 @@ class SettingsViewController: UITableViewController {
       NSAttributedString.Key.strokeWidth : -1.5
       ]
       as [NSAttributedString.Key : Any]
-    
+    //Cell 0
     idLabel.attributedText = NSMutableAttributedString(string: currentUser.name, attributes: strokeTextAttributes)
-    labels.forEach{$0.textColor = .gosspGreen}
-    
     if currentUser.vouchable() {
       idChange.tintColor = .gosspLightGray
       idColorChange.tintColor = .gosspLightGray
@@ -113,35 +126,13 @@ class SettingsViewController: UITableViewController {
       idChange.tintColor = .gosspGreen
       idColorChange.tintColor = .gosspGreen
     }
-    self.tableView.tintColor = .gosspGreen
-    self.tableView.backgroundColor = .gosspLighterPurple
-    self.tableView.separatorColor = UIColor.white
+    idLabel.textColor = currentUser.color()
+    idLabel.text = currentUser.name
     
-    cellContentViews.forEach{$0.backgroundColor = .gosspLighterPurple}
-    let image = UIImage(named: "GosspWide8") //Your logo url here
-    let imageView = UIImageView(image: image)
-    let bannerWidth = self.navigationController?.navigationBar.frame.size.width
-    let bannerHeight = self.navigationController?.navigationBar.frame.size.height
-    let bannerX = bannerWidth! / 2 - (image?.size.width)! / 2
-    let bannerY = bannerHeight! / 2 - (image?.size.height)! / 2
-    imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth!, height: bannerHeight!)
-    imageView.contentMode = .scaleAspectFit
-    navigationItem.titleView = imageView
+    //Cell 1
+    isHiddenSelected.onTintColor = .gosspGreen
+    isHiddenSelected.isOn = UserDefaults.standard.bool(forKey: "nameHiddenIntGosspList")
     
-    //self.navigationController?.navigationBar.topItem?.title = "Gossp"
-    // Listen to the color.
-    DispatchQueue.global(qos: .background).async {
-      _ = ref.child("users").child(currentUser.name).observe(DataEventType.value, with: { (snapshot) in
-        DispatchQueue.main.async {
-          let value = snapshot.value as? NSDictionary
-          currentUser.colors = value?["colors"] as? Array<CGFloat> ?? [0,0,0]
-          currentUser.name = value?["username"] as? String ?? ""
-          self.idLabel.textColor = currentUser.color()
-          self.idLabel.text = currentUser.name
-          
-        }
-      })
-    }
   }
 
   override func viewDidLoad() {
@@ -164,7 +155,7 @@ class SettingsViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of rows
-    return 5
+    return 6
   }
   
   override var preferredStatusBarStyle: UIStatusBarStyle {return .lightContent}
