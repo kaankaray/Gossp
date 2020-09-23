@@ -28,7 +28,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>776</string>
+	<string>1227</string>
 	<key>FirebaseScreenReportingEnabled</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
@@ -38,6 +38,8 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera access is required in order to attach photos to your Gossps.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Location is required when you are using the application to determine your location.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -46,6 +48,8 @@
 	<string>Location is required when you are using the application to determine your location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location is required when you are using the application to determine your location.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo library access is required in order to attach photos to your Gossps.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

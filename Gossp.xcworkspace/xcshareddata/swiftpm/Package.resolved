@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CircularProgressView",
+        "repositoryURL": "https://github.com/bdolewski/CircularProgressView.git",
+        "state": {
+          "branch": null,
+          "revision": "7c502b8303e79ded023743254b67ddfc96625ed2",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "MarqueeLabel",
+        "repositoryURL": "https://github.com/cbpowell/MarqueeLabel.git",
+        "state": {
+          "branch": null,
+          "revision": "8cd051e549b4fcbc469cc1cb7c55ae10f49caef8",
+          "version": "4.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

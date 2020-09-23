@@ -7,27 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7006721824F4235600BA0A28 /* CreateGosspViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7006721724F4235600BA0A28 /* CreateGosspViewController.swift */; };
+		7006721A24F4237700BA0A28 /* ShowGosspDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7006721924F4237700BA0A28 /* ShowGosspDetailsViewController.swift */; };
+		7015868D24F1ABDA00497839 /* LocationGosspsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704725CA24E1C31A00A5782D /* LocationGosspsTableViewController.swift */; };
 		7039B0E724E32D2E00EDCB35 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7039B0E624E32D2E00EDCB35 /* NotificationService.swift */; };
 		7039B0EB24E32D2E00EDCB35 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7039B0E424E32D2E00EDCB35 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		703C43DC24D7314C003B1B50 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C43DB24D7314C003B1B50 /* Global.swift */; };
 		703C43DE24D7316C003B1B50 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C43DD24D7316C003B1B50 /* Extentions.swift */; };
-		704725C924E1C2BA00A5782D /* gosspTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704725C824E1C2BA00A5782D /* gosspTableViewCell.swift */; };
-		704725CB24E1C31A00A5782D /* LocationGosspsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704725CA24E1C31A00A5782D /* LocationGosspsTableViewController.swift */; };
+		704725C924E1C2BA00A5782D /* GosspTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704725C824E1C2BA00A5782D /* GosspTableViewCell.swift */; };
 		7049E3E024E01F3C0042A769 /* PhoneLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049E3DF24E01F3C0042A769 /* PhoneLoginViewController.swift */; };
-		7062D1D124E18119007992D9 /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7062D1D024E18119007992D9 /* SocialViewController.swift */; };
 		7062D1D324E183EB007992D9 /* LocationsListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7062D1D224E183EB007992D9 /* LocationsListCellTableViewCell.swift */; };
 		70635B6F24D725A60032F072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70635B6E24D725A60032F072 /* AppDelegate.swift */; };
 		70635B7624D725A60032F072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70635B7424D725A60032F072 /* Main.storyboard */; };
 		70635B7824D725AD0032F072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70635B7724D725AD0032F072 /* Assets.xcassets */; };
 		70635B7B24D725AD0032F072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70635B7924D725AD0032F072 /* LaunchScreen.storyboard */; };
 		70635B8324D7292E0032F072 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70635B8224D7292D0032F072 /* MapViewController.swift */; };
-		70635B8924D729F00032F072 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70635B8824D729F00032F072 /* SettingsViewController.swift */; };
 		7076AC0924D821180046103C /* PrivateSDKKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7076AC0824D821180046103C /* PrivateSDKKeys.swift */; };
+		70800D0A24F98BA600B3942D /* TagableListScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70800D0924F98BA600B3942D /* TagableListScrollView.swift */; };
 		708F496424E1DAB10050A828 /* VouchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708F496324E1DAB10050A828 /* VouchingViewController.swift */; };
 		708F496624E1DAE00050A828 /* AddLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708F496524E1DAE00050A828 /* AddLocationTableViewCell.swift */; };
+		7095921C24F835E800C79354 /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 7095921B24F835E800C79354 /* MarqueeLabel */; };
 		709E34E524E00A39003C1116 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 709E34E424E00A39003C1116 /* GoogleService-Info.plist */; };
 		70B280E924E5F89D00DA6127 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 70B280E824E5F89D00DA6127 /* mapStyle.json */; };
 		70D7621524ED2FC4001604C0 /* CircularProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = 70D7621424ED2FC4001604C0 /* CircularProgressView */; };
+		70DCA3C4250E8F5900C8032C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70635B8824D729F00032F072 /* SettingsViewController.swift */; };
+		70DEFA0124F2B4AA00D0B210 /* NoContextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70DEFA0024F2B4A900D0B210 /* NoContextView.xib */; };
 		81FA8356B707F5F8327342F4 /* Pods_Gossp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29827A3B4C186673D7EF650 /* Pods_Gossp.framework */; };
 		85D3758F06953608375F1660 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F94D6FF752E96685897207B /* Pods_OneSignalNotificationServiceExtension.framework */; };
 /* End PBXBuildFile section */
@@ -59,13 +63,15 @@
 /* Begin PBXFileReference section */
 		0F94D6FF752E96685897207B /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD882CD4F288D4723DCFD39 /* Pods-Gossp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gossp.release.xcconfig"; path = "Target Support Files/Pods-Gossp/Pods-Gossp.release.xcconfig"; sourceTree = "<group>"; };
+		7006721724F4235600BA0A28 /* CreateGosspViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGosspViewController.swift; sourceTree = "<group>"; };
+		7006721924F4237700BA0A28 /* ShowGosspDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGosspDetailsViewController.swift; sourceTree = "<group>"; };
 		7039B0E424E32D2E00EDCB35 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7039B0E624E32D2E00EDCB35 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		7039B0E824E32D2E00EDCB35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		703C43D924D72FEC003B1B50 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		703C43DB24D7314C003B1B50 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = SOURCE_ROOT; };
 		703C43DD24D7316C003B1B50 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
-		704725C824E1C2BA00A5782D /* gosspTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gosspTableViewCell.swift; sourceTree = "<group>"; };
+		704725C824E1C2BA00A5782D /* GosspTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GosspTableViewCell.swift; sourceTree = "<group>"; };
 		704725CA24E1C31A00A5782D /* LocationGosspsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGosspsTableViewController.swift; sourceTree = "<group>"; };
 		7049E3DE24E017870042A769 /* Gossp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gossp.entitlements; sourceTree = "<group>"; };
 		7049E3DF24E01F3C0042A769 /* PhoneLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLoginViewController.swift; sourceTree = "<group>"; };
@@ -80,10 +86,12 @@
 		70635B8224D7292D0032F072 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		70635B8824D729F00032F072 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7076AC0824D821180046103C /* PrivateSDKKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateSDKKeys.swift; sourceTree = "<group>"; };
+		70800D0924F98BA600B3942D /* TagableListScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagableListScrollView.swift; sourceTree = "<group>"; };
 		708F496324E1DAB10050A828 /* VouchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VouchingViewController.swift; sourceTree = "<group>"; };
 		708F496524E1DAE00050A828 /* AddLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddLocationTableViewCell.swift; path = /Users/kaankaray/Developer/Xcode/Gossp/Gossp/MapView/AddLocationTableViewCell.swift; sourceTree = "<absolute>"; };
 		709E34E424E00A39003C1116 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70B280E824E5F89D00DA6127 /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
+		70DEFA0024F2B4A900D0B210 /* NoContextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoContextView.xib; sourceTree = "<group>"; };
 		8150F463EBB9DB9D11E493A6 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		C67DDAC3F7F362333BAED061 /* Pods-Gossp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gossp.debug.xcconfig"; path = "Target Support Files/Pods-Gossp/Pods-Gossp.debug.xcconfig"; sourceTree = "<group>"; };
 		E29827A3B4C186673D7EF650 /* Pods_Gossp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gossp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,12 +113,34 @@
 			files = (
 				81FA8356B707F5F8327342F4 /* Pods_Gossp.framework in Frameworks */,
 				70D7621524ED2FC4001604C0 /* CircularProgressView in Frameworks */,
+				7095921C24F835E800C79354 /* MarqueeLabel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7015868C24F1AB6400497839 /* Vouching */ = {
+			isa = PBXGroup;
+			children = (
+				708F496324E1DAB10050A828 /* VouchingViewController.swift */,
+				708F496524E1DAE00050A828 /* AddLocationTableViewCell.swift */,
+			);
+			path = Vouching;
+			sourceTree = "<group>";
+		};
+		7015868E24F1ABDE00497839 /* GosspFeedView */ = {
+			isa = PBXGroup;
+			children = (
+				704725CA24E1C31A00A5782D /* LocationGosspsTableViewController.swift */,
+				704725C824E1C2BA00A5782D /* GosspTableViewCell.swift */,
+				7006721724F4235600BA0A28 /* CreateGosspViewController.swift */,
+				7006721924F4237700BA0A28 /* ShowGosspDetailsViewController.swift */,
+				70800D0924F98BA600B3942D /* TagableListScrollView.swift */,
+			);
+			path = GosspFeedView;
+			sourceTree = "<group>";
+		};
 		7039B0E524E32D2E00EDCB35 /* OneSignalNotificationServiceExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +203,7 @@
 				7082737B24D72AAF00952CDD /* SettingsView */,
 				70635B7724D725AD0032F072 /* Assets.xcassets */,
 				70635B7424D725A60032F072 /* Main.storyboard */,
+				70DEFA0024F2B4A900D0B210 /* NoContextView.xib */,
 				70635B7924D725AD0032F072 /* LaunchScreen.storyboard */,
 				70635B7C24D725AD0032F072 /* Info.plist */,
 				70B280E824E5F89D00DA6127 /* mapStyle.json */,
@@ -184,8 +215,9 @@
 			isa = PBXGroup;
 			children = (
 				70635B8224D7292D0032F072 /* MapViewController.swift */,
-				708F496324E1DAB10050A828 /* VouchingViewController.swift */,
-				708F496524E1DAE00050A828 /* AddLocationTableViewCell.swift */,
+				7062D1D224E183EB007992D9 /* LocationsListCellTableViewCell.swift */,
+				7015868C24F1AB6400497839 /* Vouching */,
+				7015868E24F1ABDE00497839 /* GosspFeedView */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -194,9 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				7062D1D024E18119007992D9 /* SocialViewController.swift */,
-				7062D1D224E183EB007992D9 /* LocationsListCellTableViewCell.swift */,
-				704725CA24E1C31A00A5782D /* LocationGosspsTableViewController.swift */,
-				704725C824E1C2BA00A5782D /* gosspTableViewCell.swift */,
 			);
 			path = SocialView;
 			sourceTree = "<group>";
@@ -262,6 +291,7 @@
 			name = Gossp;
 			packageProductDependencies = (
 				70D7621424ED2FC4001604C0 /* CircularProgressView */,
+				7095921B24F835E800C79354 /* MarqueeLabel */,
 			);
 			productName = Gossp;
 			productReference = 70635B6B24D725A60032F072 /* Gossp.app */;
@@ -296,6 +326,7 @@
 			mainGroup = 70635B6224D725A60032F072;
 			packageReferences = (
 				70D7621324ED2FC4001604C0 /* XCRemoteSwiftPackageReference "CircularProgressView" */,
+				7095921A24F835E800C79354 /* XCRemoteSwiftPackageReference "MarqueeLabel" */,
 			);
 			productRefGroup = 70635B6C24D725A60032F072 /* Products */;
 			projectDirPath = "";
@@ -324,6 +355,7 @@
 				70635B7824D725AD0032F072 /* Assets.xcassets in Resources */,
 				70B280E924E5F89D00DA6127 /* mapStyle.json in Resources */,
 				70635B7624D725A60032F072 /* Main.storyboard in Resources */,
+				70DEFA0124F2B4AA00D0B210 /* NoContextView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,17 +473,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7062D1D324E183EB007992D9 /* LocationsListCellTableViewCell.swift in Sources */,
+				70800D0A24F98BA600B3942D /* TagableListScrollView.swift in Sources */,
 				708F496424E1DAB10050A828 /* VouchingViewController.swift in Sources */,
 				70635B6F24D725A60032F072 /* AppDelegate.swift in Sources */,
+				7015868D24F1ABDA00497839 /* LocationGosspsTableViewController.swift in Sources */,
 				703C43DE24D7316C003B1B50 /* Extentions.swift in Sources */,
-				704725CB24E1C31A00A5782D /* LocationGosspsTableViewController.swift in Sources */,
+				7006721824F4235600BA0A28 /* CreateGosspViewController.swift in Sources */,
+				7006721A24F4237700BA0A28 /* ShowGosspDetailsViewController.swift in Sources */,
+				70DCA3C4250E8F5900C8032C /* SettingsViewController.swift in Sources */,
 				7076AC0924D821180046103C /* PrivateSDKKeys.swift in Sources */,
 				70635B8324D7292E0032F072 /* MapViewController.swift in Sources */,
 				708F496624E1DAE00050A828 /* AddLocationTableViewCell.swift in Sources */,
 				7049E3E024E01F3C0042A769 /* PhoneLoginViewController.swift in Sources */,
-				7062D1D124E18119007992D9 /* SocialViewController.swift in Sources */,
-				70635B8924D729F00032F072 /* SettingsViewController.swift in Sources */,
-				704725C924E1C2BA00A5782D /* gosspTableViewCell.swift in Sources */,
+				704725C924E1C2BA00A5782D /* GosspTableViewCell.swift in Sources */,
 				703C43DC24D7314C003B1B50 /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,7 +687,7 @@
 				CURRENT_PROJECT_VERSION = 54;
 				DEVELOPMENT_TEAM = 3NU6W7THDN;
 				INFOPLIST_FILE = Gossp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -677,7 +711,7 @@
 				CURRENT_PROJECT_VERSION = 54;
 				DEVELOPMENT_TEAM = 3NU6W7THDN;
 				INFOPLIST_FILE = Gossp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -722,6 +756,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7095921A24F835E800C79354 /* XCRemoteSwiftPackageReference "MarqueeLabel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cbpowell/MarqueeLabel.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.2;
+			};
+		};
 		70D7621324ED2FC4001604C0 /* XCRemoteSwiftPackageReference "CircularProgressView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bdolewski/CircularProgressView.git";
@@ -733,6 +775,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7095921B24F835E800C79354 /* MarqueeLabel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7095921A24F835E800C79354 /* XCRemoteSwiftPackageReference "MarqueeLabel" */;
+			productName = MarqueeLabel;
+		};
 		70D7621424ED2FC4001604C0 /* CircularProgressView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 70D7621324ED2FC4001604C0 /* XCRemoteSwiftPackageReference "CircularProgressView" */;
