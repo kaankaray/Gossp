@@ -38,6 +38,7 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
   
   @IBAction func addButtonAct(_ sender: Any) {
     //performSegue(withIdentifier: "segueShowNavigation", sender: self)
+    randTaptic(3)
   }
   
   func doUIColorChanges() {
@@ -53,9 +54,6 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     UINavigationBar.appearance().tintColor = .gosspGreen
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     
-    
-    
-    
   }
   //MARK: ViewDid...
   override func viewDidLoad() {
@@ -67,7 +65,7 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     locationManager = CLLocationManager()
     locationManager.desiredAccuracy = kCLLocationAccuracyBest
     locationManager.requestAlwaysAuthorization()
-    locationManager.distanceFilter = 50
+    locationManager.distanceFilter = 5
     locationManager.startUpdatingLocation()
     locationManager.delegate = self
     placesClient = GMSPlacesClient.shared()
@@ -90,17 +88,7 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     mapView.settings.tiltGestures = false
     mapView.isUserInteractionEnabled = false
     
-    do {
-      // Set the map style by passing a valid JSON string.
-      mapView.mapStyle = try GMSMapStyle(jsonString: mapStyle)
-    } catch {
-      NSLog("One or more of the map styles failed to load. \(error)")
-    }
-    
-    
-    
-    
-    
+    do {mapView.mapStyle = try GMSMapStyle(jsonString: mapStyle)} catch {NSLog("One or more of the map styles failed to load. \(error)")}
     view.addSubview(mapView)
     
     tableViewContent.frame = CGRect(x: 0, y: (self.view.frame.height * mapTableRatio), width: self.view.frame.width, height: (self.view.frame.height * (1 - mapTableRatio)))
@@ -109,22 +97,25 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
   }
   var dist:Double = 0
   func showCloseLocations(_ location: CLLocation) {
-    allLocations.forEach{
+    allLocations.forEach { (loc) in
       closeLocations = []
-        $0.distance = CLLocation(latitude: CLLocationDegrees($0.coordinates[0]),
-                                 longitude: CLLocationDegrees($0.coordinates[1])).distance(from: location)
+      loc.contCount.forEach { (user) in
+        if user.pNumber == accPNumber {closeLocations.append(loc)}
+      }
+      loc.distance = CLLocation(latitude: CLLocationDegrees(loc.coordinates[0]),
+                               longitude: CLLocationDegrees(loc.coordinates[1])).distance(from: location)
       //print("Distance for \($0.name) is \($0.distance)")
-      if $0.distance < minDistanceToSee {closeLocations.append($0)}
+      if loc.distance < minDistanceToSee {closeLocations.append(loc)}
       let marker2 = GMSCircle()
-      marker2.position = CLLocationCoordinate2D(latitude: CLLocationDegrees($0.coordinates[0]),
-                                                longitude: CLLocationDegrees($0.coordinates[1]))
-      marker2.radius = $0.calculateRadius()
-      marker2.fillColor = $0.color(alpha: 0.1)
+      marker2.position = CLLocationCoordinate2D(latitude: CLLocationDegrees(loc.coordinates[0]),
+                                                longitude: CLLocationDegrees(loc.coordinates[1]))
+      marker2.radius = loc.calculateRadius()
+      marker2.fillColor = loc.color(alpha: 0.1)
       marker2.strokeWidth = 2
-      marker2.strokeColor = $0.color(alpha: 0.8)
+      marker2.strokeColor = loc.color(alpha: 0.8)
       marker2.map = mapView
     }
-    closeLocations.forEach{$0.printValues()}
+    //    closeLocations.forEach{$0.printLocation()}
     self.tableViewContent.reloadData()
   }
   
@@ -234,17 +225,28 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {return closeLocations.count}
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {return 123}
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {tableViewContent.deselectRow(at: indexPath, animated: true)}
-  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! LocationsListCellTableViewCell
     cell.useData(closeLocations[indexPath.row])
     cell.customSuperView = self
-    if !(closeLocations[indexPath.row].distance < minDistanceToAction) {cell.subscriptionButton.isHidden = true}
-    else {cell.subscriptionButton.isHidden = false}
-    
-    
     return cell
+  }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! LocationsListCellTableViewCell
+    tableViewContent.deselectRow(at: indexPath, animated: true)
+    cell.gosspLocation = closeLocations[indexPath.row]
+    if !locationList.contains(closeLocations[indexPath.row].ID){cell.addOrActivateUser()}
+    else {cell.useData(closeLocations[indexPath.row])}
+    closeLocations[indexPath.row].printLocation()
+    self.performSegue(withIdentifier: "showFeed", sender: indexPath.row)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: (Any)?) {
+    if segue.identifier == "showFeed" {
+      let feed = segue.destination as! LocationGosspsTableViewController
+      feed.selectedLocation = closeLocations[sender as! Int]
+      feed.setDisplay()
+    }
   }
   
   override var preferredStatusBarStyle: UIStatusBarStyle {return .lightContent}
