@@ -50,12 +50,12 @@ class PhoneLoginViewController: UIViewController, FUIAuthDelegate {
     loadingView.backgroundBarColor = .gosspLightGray
     
     let authUI = FUIAuth.defaultAuthUI()!
-    ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+    ref.child("accounts").observeSingleEvent(of: .value, with: { (snapshot) in
       let value = snapshot.value as? NSDictionary
       self.listOfKeys = value?.allKeys as? Array<String> ?? []
       self.loadingView.setProgress(to: 0.1, animated: false)
       _ = Auth.auth().addStateDidChangeListener { (auth, user) in
-        if !self.listOfKeys.contains(UserDefaults.standard.string(forKey: "username") ?? "Something."){
+        if accPNumber == ""{
           // You need to adopt a FUIAuthDelegate protocol to receive callback
           authUI.delegate = self
           authUI.providers = [FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!)]
@@ -67,23 +67,10 @@ class PhoneLoginViewController: UIViewController, FUIAuthDelegate {
         } else {
           //Already registered.
           self.loadingView.setProgress(to: 0.3, animated: false)
-          ref.child("users").child(UserDefaults.standard.string(forKey: "username")!).observeSingleEvent(of: .value, with: { (snapshot) in
-            print("Already registered user.")
-            self.loadingView.setProgress(to: 1, animated: true)
+          ref.child("accounts").child(UserDefaults.standard.string(forKey: "pNumber")!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
-            currentUser.name = value?["username"] as? String ?? ""
-            currentUser.pNumber = value?["pnumber"] as? String ?? ""
-            currentUser.colors = value?["colors"] as? Array<CGFloat> ?? [0,0,0]
-            currentUser.UID = value?["UID"] as? String ?? ""
-            currentUser.enlistedLocations = value?["locationIDs"] as? Array<Int> ?? []
-            currentUser.vouchableDate = value?["vouchableDate"] as? Double ?? 0
-            currentUser.isDeleted = value?["isDeleted"] as? Bool ?? false
-            currentUser.score = value?["score"] as? Int ?? 0
-            currentUser.playerID = value?["playerID"] as? String ?? ""
-            
-            currentUser.printUser()
-            self.loadingView.setProgress(to: 1, animated: true)
-            print("Segue called!")
+            vouchableDateAccount = value?["vouchableDate"] as? Double ?? 0
+            locationList = value?["locationList"] as? Array<Int> ?? []
             self.performSegue(withIdentifier: "segueShowNavigation", sender: self)
           }) { (error) in
             print(error.localizedDescription)
@@ -101,39 +88,29 @@ class PhoneLoginViewController: UIViewController, FUIAuthDelegate {
   // MARK: Auth
   
   func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-    print("didSignIn")
-    var randomUsername = randomString(length: 8)
+    print("didSignIn\n\(String(describing: error?.localizedDescription))") // If entered correctly, error?.localizedDescription returns nil
+    if error?.localizedDescription == nil{
     self.loadingView.setProgress(to: 1, animated: true)
-    while listOfKeys.contains(randomUsername){randomUsername = randomString(length: 8)}
-    let newUser = [
-      "username": randomUsername,
-      "pnumber": authDataResult!.user.phoneNumber!,
-      "uid":authDataResult!.user.uid,
-      "locationIDs":[],
-      "colors": randomColorFloat(),
-      "vouchableDate":Double(0),
-      "isDeleted": false,
-      "score": Int(0),
-      "playerID": String((OneSignal.getUserDevice()?.getUserId())!)
-      ] as [String : Any]
-    UserDefaults.standard.setValue(randomUsername, forKey: "username")
-    ref.child("users").child(randomUsername).setValue(newUser)
-    currentUser = GosspUser(value: newUser as NSDictionary)
-    counters.activeUser += 1
-    counters.nameCount += 1
-    counters.updateCloud()
-    print("Segue called!")
-    performSegue(withIdentifier: "segueShowNavigation", sender: self)
+    UserDefaults.standard.setValue(authDataResult!.user.phoneNumber!, forKey: "pNumber")
+    ref.child("accounts").child(UserDefaults.standard.string(forKey: "pNumber")!).observeSingleEvent(of: .value, with: { (snapshot) in
+      let value = snapshot.value as? NSDictionary
+      vouchableDateAccount = value?["vouchableDate"] as? Double ?? 0
+      locationList = value?["locationList"] as? Array<Int> ?? []
+      accUID = authDataResult!.user.uid
+      accPNumber = authDataResult!.user.phoneNumber!
+      updateAccount()
+      counters.activeUser += 1
+      counters.nameCount += 1
+      counters.updateCloud()
+      self.performSegue(withIdentifier: "segueShowNavigation", sender: self)
+    }) { (error) in
+      print(error.localizedDescription)
+    }
+    }
   }
   func authUI(_ authUI: FUIAuth, didFinish operation: FUIAccountSettingsOperationType, error: Error?) {
     print(operation)
     print(error! as Error)
-  }
-  
-  func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-    // handle user and error as necessary
-    print("Error - ")
-    print(error as Any)
   }
   
   
