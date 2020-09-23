@@ -27,30 +27,32 @@ class VouchingViewController: UIViewController, UITableViewDelegate, UITableView
   var selectedPlace: GMSPlace?
   var candidateLocations: Array<GosspLocation> = []
   var vouchLocation:Array<Double> = []
+  var realArray:Array<NSDictionary> = []
   
+  ///Add button penalty check.
   func addButtonCheck() {
     //Adding button is not possible, time limit.
-    if currentUser.vouchable() {addButton.tintColor = UIColor.lightGray}
+    if !accountVouchable() {addButton.tintColor = UIColor.lightGray}
     else {addButton.tintColor = .gosspGreen}
   }
+  
+  ///Focuses map to the location.
   func mapFocus(location:Array<Double>) {
     DispatchQueue.main.async {
       let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(location[0]),
-                                        longitude: CLLocationDegrees(location[1]),
-                                        zoom: self.zoomLevel)
+                                            longitude: CLLocationDegrees(location[1]),
+                                            zoom: self.zoomLevel)
       self.mapView.animate(to: camera)
     }
     vouchLocation = location
   }
   
+  ///Removes user from vouching if he is vouching anything. Will get called if viewWillDisappear.
   @objc func appWillTerminate() {
-    //Removes user from vouching if he is vouching anything.
     if candidateLocations.count != 0{
       for k in 0...candidateLocations.count-1 {
         let w = tableViewContent.cellForRow(at: IndexPath(row: k, section: 0)) as! AddLocationTableViewCell
-        if w.vouchers.contains(currentUser.name){
-          w.deleteButtonAct(self)
-        }
+        w.vouchers.forEach{if $0.pNumber == w.currentUser.pNumber {w.deleteButtonAct(self)}}
       }
     }
   }
@@ -62,13 +64,13 @@ class VouchingViewController: UIViewController, UITableViewDelegate, UITableView
   
   //Not in use!
   @IBAction func cancelButtonAct(_ sender: Any) {
-    
   }
   
   @IBAction func addButtonAct(_ sender: Any) {
-    if currentUser.vouchable() {
+    if !accountVouchable() {
       //Adding button is not possible, time limit.
-      let alert = UIAlertController(title: "Sorry!", message: "You are not allowed to create a new location for: \(timeIntervalToBeautifulString(time: (currentUser.vouchableDate - Date().timeIntervalSince1970)))", preferredStyle: .alert)
+      randTaptic(2)
+      let alert = UIAlertController(title: "Sorry!", message: "You are not allowed to create a new location for: \(timeIntervalToBeautifulString(time: (vouchableDateAccount - Date().timeIntervalSince1970)))", preferredStyle: .alert)
       
       alert.addAction(UIAlertAction(title: "Understood.", style: .default, handler: nil))
       alert.addAction(UIAlertAction(title: "Understood and show me time penalties.", style: .default, handler: { (action) in
@@ -81,12 +83,15 @@ class VouchingViewController: UIViewController, UITableViewDelegate, UITableView
     else {// Everything looks good I guess...
       
       let p = warningAlert()
-      
+      randTaptic(1)
       p.addAction(UIAlertAction(title: "I understand and would like to proceed.", style: .destructive, handler: { (action) in
         //Asking for the name of the Location.
+        randTaptic(0)
         self.locationManager.requestLocation()
         let alert = UIAlertController(title: "Input the name of the Gossp location", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (action) in
+          randTaptic(2)
+        }))
         
         alert.addTextField(configurationHandler: { textField in
           textField.placeholder = "Min 3, max 24 characters."
@@ -95,17 +100,17 @@ class VouchingViewController: UIViewController, UITableViewDelegate, UITableView
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
           if let name = alert.textFields?.first?.text {
             if name.count >= 3 && name.count <= 24{
-              print("Your name: \(name)")
               // MARK: Saving candidate location.
-              let locationColor = randomColorFloat()
-              ref.child("candidateLocation").child("value\(counters.locationCount)").setValue([
+              randTaptic(0)
+              let newUser = GosspUser()
+              ref.child("candidateLocations").child("value\(counters.locationCount)").setValue([
                 "name": name,
                 "ID":counters.locationCount,
                 "coordinates":[self.locationManager.location?.coordinate.latitude, self.locationManager.location?.coordinate.longitude],
-                "contCount":[],
-                "vouchers":[currentUser.name],
+                "contCount":[newUser.returnAsDictionary()],
+                "vouchers":[newUser.returnAsDictionary()],
                 "GosspArray":[],
-                "colors":locationColor
+                "colors":randomColorFloat()
                 
                 
               ]){
@@ -115,16 +120,18 @@ class VouchingViewController: UIViewController, UITableViewDelegate, UITableView
                 } else {
                   print("Data saved successfully!")
                   self.tableViewContent.reloadData()
+                  vouchableDateAccount = Date().addingTimeInterval(timeoutsInDays().creatingLocation).timeIntervalSince1970
+                  locationList.append(counters.locationCount)
+                  updateAccount()
                   counters.locationCount += 1
                   counters.updateCloud()
-                  currentUser.vouchableDate = Date().addingTimeInterval(timeoutsInDays().creatingLocation).timeIntervalSince1970
-                  currentUser.updateCloud()
                   self.addButtonCheck()
                 }
               }
               
             } else {
               let alert = UIAlertController(title: "Sorry!", message: "Gossp location name must be minimum 3 characters and maximum 24 long.", preferredStyle: .alert)
+              randTaptic(2)
               alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
               self.present(alert, animated: true)
             }
@@ -132,7 +139,7 @@ class VouchingViewController: UIViewController, UITableViewDelegate, UITableView
         }))
         self.present(alert, animated: true)
       }))
-      p.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+      p.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action) in randTaptic(7)}))
       
       self.present(p, animated: true)
     }
@@ -148,25 +155,26 @@ class VouchingViewController: UIViewController, UITableViewDelegate, UITableView
     locationManager = CLLocationManager()
     locationManager.desiredAccuracy = kCLLocationAccuracyBest
     locationManager.requestAlwaysAuthorization()
-    locationManager.distanceFilter = 50
+    locationManager.distanceFilter = 3
     locationManager.startUpdatingLocation()
     locationManager.delegate = self
     placesClient = GMSPlacesClient.shared()
     
     DispatchQueue.global(qos: .background).async {
-      _ = ref.child("candidateLocation").observe(DataEventType.value, with: { (snapshot) in
+      _ = ref.child("candidateLocations").observe(DataEventType.value, with: { (snapshot) in
+        print("smth")
         let value = snapshot.value as? NSDictionary ?? [:]
-        var realArray:Array<NSDictionary> = []
+        self.realArray = []
         self.mapView.clear()
         for k in 0...counters.locationCount {
           let p = value["value\(k)"] as? NSDictionary
           if p?["name"] as? String ?? "" != ""{
-            realArray.append(value["value\(k)"] as! NSDictionary)
+            self.realArray.append(value["value\(k)"] as! NSDictionary)
           }
         }
         DispatchQueue.main.async {
           self.candidateLocations = []
-          realArray.forEach{
+          self.realArray.forEach{
             let tmp = GosspLocation(rawValue: $0)
             tmp.distance = CLLocation(latitude: CLLocationDegrees(tmp.coordinates[0]),
                                       longitude: CLLocationDegrees(tmp.coordinates[1])).distance(from: self.locationManager?.location ?? defaultLocation)
@@ -174,8 +182,8 @@ class VouchingViewController: UIViewController, UITableViewDelegate, UITableView
             
             
           }
-          print("Vouching locations:")
-          self.candidateLocations.forEach{$0.printValues()}
+          print("Vouching candidate locations:")
+          self.candidateLocations.forEach{$0.printLocation()}
           self.tableViewContent.reloadData()
         }
         
@@ -217,7 +225,6 @@ class VouchingViewController: UIViewController, UITableViewDelegate, UITableView
     listLikelyPlaces()
   }
   
-  
   override func viewWillAppear(_ animated: Bool) {
     self.navigationController?.setNavigationBarHidden(false, animated: true)
     addButtonCheck()
@@ -225,11 +232,10 @@ class VouchingViewController: UIViewController, UITableViewDelegate, UITableView
     tableViewContent.backgroundColor = .gosspPurple
     tableViewContent.separatorColor = UIColor.white
     
+    
   }
   
-  override func viewWillDisappear(_ animated: Bool) {
-    appWillTerminate()
-  }
+  override func viewWillDisappear(_ animated: Bool) {appWillTerminate()}
   
   // MARK: - Map
   // Delegates to handle events for the location manager.
@@ -268,6 +274,20 @@ class VouchingViewController: UIViewController, UITableViewDelegate, UITableView
       camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(vouchLocation[0]),
                                         longitude: CLLocationDegrees(vouchLocation[1]),
                                         zoom: zoomLevel)
+    }
+    DispatchQueue.main.async {
+      self.candidateLocations = []
+      self.realArray.forEach{
+        let tmp = GosspLocation(rawValue: $0)
+        tmp.distance = CLLocation(latitude: CLLocationDegrees(tmp.coordinates[0]),
+                                  longitude: CLLocationDegrees(tmp.coordinates[1])).distance(from: self.locationManager?.location ?? defaultLocation)
+        if tmp.distance < minDistanceToSee{self.candidateLocations.append(tmp)}
+        
+        
+      }
+      print("Vouching candidate locations:")
+      self.candidateLocations.forEach{$0.printLocation()}
+      self.tableViewContent.reloadData()
     }
     
     if mapView.isHidden {
@@ -313,68 +333,16 @@ class VouchingViewController: UIViewController, UITableViewDelegate, UITableView
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {return candidateLocations.count}
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as! AddLocationTableViewCell
     cell.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: cell.frame.size.height)
-    cell.backgroundColor = .gosspPurple
-    cell.tintColor = .gosspGreen
-    cell.vouchers = self.candidateLocations[indexPath.row].vouchers
-    cell.coordinates = self.candidateLocations[indexPath.row].coordinates
-    cell.ID = self.candidateLocations[indexPath.row].ID
-    cell.color = self.candidateLocations[indexPath.row].color(alpha: 1)
-    cell.colorCGFloat = self.candidateLocations[indexPath.row].colors
-    cell.title = "\(self.candidateLocations[indexPath.row].name)  (\(cell.vouchers.count)/5)"
-    cell.setLocations()
+    cell.locationAsGosspLocation = self.candidateLocations[indexPath.row]
     cell.customSuperview = self
-    let marker2 = GMSCircle()
-    marker2.position = CLLocationCoordinate2D(
-      latitude: CLLocationDegrees((self.candidateLocations[indexPath.row].coordinates[0])),
-      longitude: (CLLocationDegrees((self.candidateLocations[indexPath.row].coordinates[1])))
-    )
-    marker2.radius = 5
-    marker2.fillColor = UIColor(red: self.candidateLocations[indexPath.row].colors[0], green: self.candidateLocations[indexPath.row].colors[1], blue: self.candidateLocations[indexPath.row].colors[2], alpha: 0.3)
-    marker2.strokeWidth = 1
-    marker2.strokeColor = UIColor(red: self.candidateLocations[indexPath.row].colors[0], green: self.candidateLocations[indexPath.row].colors[1], blue: self.candidateLocations[indexPath.row].colors[2], alpha: 0.8)
-    marker2.map = self.mapView
-    if cell.vouchers.contains(currentUser.name){
-      self.mapFocus(location: cell.coordinates)
-      //User vouches and in distance!
-      if !(self.candidateLocations[indexPath.row].distance < minDistanceToAction){
-        //User shouldn't be in the list!
-        cell.deleteButtonAct(self)
-      }
-      
-      
-      cell.buttonOutlets[1].isHidden = false
-      if cell.vouchers.first == currentUser.name{
-        //User is the owner as well!
-        if cell.vouchers.count == 5{
-          //There are 5 users vouched!
-          cell.buttonOutlets[0].isHidden = false
-        } else {
-          //There are not enough people vouched!
-          cell.buttonOutlets[0].isHidden = true
-        }
-      } else {
-        //User is not the owner, but here.
-        cell.buttonOutlets[0].isHidden = true
-      }
-    } else {
-      // User is not here.
-      cell.buttonOutlets[1].isHidden = true
-      if self.candidateLocations[indexPath.row].distance < minDistanceToAction{cell.buttonOutlets[0].isHidden = false}
-      else{
-        cell.buttonOutlets[0].isHidden = true
-        cell.secondLabel.text = "\(self.candidateLocations[indexPath.row].distance) meters. You have to be in \(minDistanceToAction) meter radius to take any action."
-        cell.secondLabel.animateLongText(frames:cell.secondLabel.frame.width - cell.titleLabel.frame.width, duration: 1)
-        
-      }
-    }
+    cell.setLocations()
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableViewContent.cellForRow(at: indexPath)?.isSelected = false
+    tableViewContent.deselectRow(at: indexPath, animated: false)
   }
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {return 78}
   
